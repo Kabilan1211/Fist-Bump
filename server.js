@@ -33,11 +33,6 @@ app.post('/thumbsUp', async (req, res) => {
     thumbsUpStore[eventId] = { count: 0, users: [] };
   }
 
-  // Check if the user has already thumbs-upped the event
-  if (thumbsUpStore[eventId].users.includes(userName)) {
-    return res.status(400).json({ error: 'User has already thumbs-upped this event' });
-  }
-
   thumbsUpStore[eventId].count += 1;
   thumbsUpStore[eventId].users.push(userName);
 
